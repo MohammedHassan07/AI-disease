@@ -49,6 +49,9 @@ def predict():
     except Exception as e:
         return jsonify({'prediction': f"Error: {str(e)}"})
  
+# Required for Vercel
+def handler(environ, start_response):
+    return app(environ, start_response)
 
 if __name__ == "__main__":
     app.run(debug=True)
